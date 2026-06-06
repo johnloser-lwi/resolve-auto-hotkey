@@ -9,10 +9,10 @@
 ^+!v:: {
     caseMenu := Menu()
     caseMenu.Add("ALL CAPS", ApplyCase)
-    caseMenu.Add("All Lowercase", ApplyCase)
+    caseMenu.Add("lowercase", ApplyCase)
     caseMenu.Add("Title Case", ApplyCase)
     caseMenu.Add("Capitalize Each Word", ApplyCase)
-    caseMenu.Add("Sentence Case", ApplyCase)
+    caseMenu.Add("Sentence case", ApplyCase)
     caseMenu.Show()
 }
 
@@ -21,13 +21,13 @@ ApplyCase(itemName, itemPos, menu) {
     switch itemName {
         case "ALL CAPS":
             result := StrUpper(text)
-        case "All Lowercase":
+        case "lowercase":
             result := StrLower(text)
         case "Title Case":
             result := ToTitleCase(text)
         case "Capitalize Each Word":
             result := CapEachWord(text)
-        case "Sentence Case":
+        case "Sentence case":
             result := ToSentenceCase(text)
         default:
             return

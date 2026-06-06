@@ -1,0 +1,17 @@
+# AutoHotkey compiled executables
+*.exe
+*.bin
+
+# AutoHotkey v1 compiled
+*.ahk.exe
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor
+.vscode/
+*.suo
+*.user
+~~

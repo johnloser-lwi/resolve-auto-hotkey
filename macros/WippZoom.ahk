@@ -1,5 +1,10 @@
 #Requires AutoHotkey v2.0
 
+; ! = Alt
+; + = Shift
+; ^ = Ctrl
+; # = Win
+
 ; --- Configure click position ---
 ; Use Ctrl+Shift+Alt+P while hovering over the button to find coordinates
 MatchRefreshBtnX := 1694   ; <-- set me
@@ -19,12 +24,14 @@ RefreshSizeBtnY := 418
 
 ^+!Left:: {
     MouseGetPos &origX, &origY
+    Click origX, origY
     Click MatchRefreshBtnX, MatchRefreshBtnY
     Click origX, origY
 }
 
 ^+!Right:: {
     MouseGetPos &origX, &origY
+    Click origX, origY
     Click SwapBtnX, SwapBtnY
     Click origX, origY
 }
@@ -32,6 +39,7 @@ RefreshSizeBtnY := 418
 ; Ctrl+Shift+Alt+Up — click and send Up
 ^+!Up:: {
     MouseGetPos &origX, &origY
+    Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Up}"
@@ -41,6 +49,7 @@ RefreshSizeBtnY := 418
 ; Ctrl+Shift+Alt+Down — click and send Down
 ^+!Down:: {
     MouseGetPos &origX, &origY
+    Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Down}"

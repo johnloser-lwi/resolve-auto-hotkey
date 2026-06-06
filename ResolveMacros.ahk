@@ -10,3 +10,4 @@
 
 #Include macros\Edit.ahk
 #Include macros\WippZoom.ahk
+#Include macros\GregTextPlus.ahk

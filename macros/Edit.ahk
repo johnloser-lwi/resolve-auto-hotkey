@@ -14,8 +14,7 @@ Spawn(name, isEffect := false)
     }
     else
     {
-        MouseGetPos &mx, &my
-        Click mx, my
+        MouseClick
     }
     Sleep 100
     Send "^{Space}"
@@ -31,15 +30,28 @@ Spawn(name, isEffect := false)
 
 DoEdit(shortcut)
 {
-    MouseGetPos &mx, &my
-    Click mx, my
+    MouseClick
     Send "{TAB}"
     Send shortcut
 }
 
+DeselectAll()
+{
+    Send "^+d"
+    Sleep 100
+}
+
+; =======================================
+; Cutting
+; =======================================
+
 ; Cut
 F3:: {
     DoEdit("b")
+    Sleep 100
+    MouseMove 20, 0, 50, "R"
+    MouseClick
+    MouseMove -20, 0, 50, "R"
 }
 
 ; Ripple Start
@@ -61,6 +73,23 @@ F2:: {
 +F2:: {
     DoEdit("s")
 }
+
++F3:: {
+    DoEdit("{Backspace}")
+}
+
+!+d:: {
+    DeselectAll
+    MouseClick
+    Send "^c"
+    Send "!{Up}"
+    Send "^v"
+    Send "{Up}"
+}
+
+; =======================================
+; Titles/Generators/Effects
+; =======================================
 
 ; Greg's Text+
 F4:: {

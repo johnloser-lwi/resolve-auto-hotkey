@@ -74,9 +74,23 @@ F2:: {
     DoEdit("s")
 }
 
+
+_trimDown := false
 +F3:: {
-    DoEdit("{Backspace}")
+    global _trimDown
+    if _trimDown
+        return
+    _trimDown := true
+    Send "c"
+    Send "{LButton Down}"
 }
+
++F3 Up:: {
+    global _trimDown
+    Send "{LButton Up}"
+    Send "v"
+    _trimDown := false
+} 
 
 !+d:: {
     DeselectAll

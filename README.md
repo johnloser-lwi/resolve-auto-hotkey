@@ -18,13 +18,15 @@ Always active in Resolve, regardless of plugin mode.
 
 ### Editing
 
-| Shortcut   | Action        |
-|------------|---------------|
-| `F1`       | Ripple Start  |
-| `F2`       | Ripple End    |
-| `F3`       | Cut           |
-| `Shift+F1` | Trim Start    |
-| `Shift+F2` | Trim End      |
+| Shortcut      | Action                                    |
+|---------------|-------------------------------------------|
+| `F1`          | Ripple Start                              |
+| `F2`          | Ripple End                                |
+| `F3`          | Cut                                       |
+| `Shift+F1`     | Trim Start                                |
+| `Shift+F2`     | Trim End                                  |
+| `Shift+F3`     | Drag Trim (hold to drag, release to exit) |
+| `Alt+Shift+D` | Duplicate clip to track above             |
 
 ### Generators / Titles
 

@@ -9,8 +9,10 @@
 ^+!v:: {
     caseMenu := Menu()
     caseMenu.Add("ALL CAPS", ApplyCase)
+    caseMenu.Add("All Lowercase", ApplyCase)
     caseMenu.Add("Title Case", ApplyCase)
     caseMenu.Add("Capitalize Each Word", ApplyCase)
+    caseMenu.Add("Sentence Case", ApplyCase)
     caseMenu.Show()
 }
 
@@ -19,14 +21,19 @@ ApplyCase(itemName, itemPos, menu) {
     switch itemName {
         case "ALL CAPS":
             result := StrUpper(text)
+        case "All Lowercase":
+            result := StrLower(text)
         case "Title Case":
             result := ToTitleCase(text)
         case "Capitalize Each Word":
             result := CapEachWord(text)
+        case "Sentence Case":
+            result := ToSentenceCase(text)
         default:
             return
     }
-    SendText result
+    A_Clipboard := result
+    Send "^v"
 }
 
 ToTitleCase(text) {
@@ -53,6 +60,23 @@ HasMinorVal(arr, val) {
         if (v = val)
             return true
     return false
+}
+
+ToSentenceCase(text) {
+    text := StrLower(text)
+    result := ""
+    capitalizeNext := true
+    loop StrLen(text) {
+        ch := SubStr(text, A_Index, 1)
+        if capitalizeNext && ch ~= "[a-z]" {
+            ch := StrUpper(ch)
+            capitalizeNext := false
+        }
+        if ch ~= "[.!?]"
+            capitalizeNext := true
+        result .= ch
+    }
+    return result
 }
 
 CapEachWord(text) {

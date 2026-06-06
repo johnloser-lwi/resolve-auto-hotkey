@@ -88,8 +88,10 @@ Pressing `Ctrl+Shift+Alt+V` opens a menu with three options applied to the curre
 | Option                  | Description                                                                 | Example                          |
 |-------------------------|-----------------------------------------------------------------------------|----------------------------------|
 | **ALL CAPS**            | Every letter uppercase                                                      | `hello world` → `HELLO WORLD`   |
+| **All Lowercase**   | Every letter lowercase                                                      | `HELLO WORLD` → `hello world`   |
 | **Title Case**          | Capitalize each word; articles, conjunctions, and short prepositions stay lowercase (first and last word always capitalized) | `the lord of the rings` → `The Lord of the Rings` |
 | **Capitalize Each Word**| Uppercase only the first letter of each word, leave remaining letters as-is | `hELLO wORLD` → `HELLO WORLD`   |
+| **Sentence Case**   | Lowercase everything, then capitalize the first letter of each sentence     | `hello. world` → `Hello. World` |
 
 Minor words kept lowercase in Title Case: `a an the and but or nor for so yet at by in of on to up as via`
 

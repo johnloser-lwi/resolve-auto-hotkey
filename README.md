@@ -38,11 +38,36 @@ AutoHotkey v2 macros for DaVinci Resolve. All shortcuts are active **only when R
 
 ---
 
+## Clipboard Utilities (`utilities/Clipboard.ahk`)
+
+| Shortcut             | Action                        |
+|----------------------|-------------------------------|
+| `Ctrl+Shift+Alt+V`   | Convert clipboard text case   |
+
+Pressing `Ctrl+Shift+Alt+V` opens a menu with three options applied to the current clipboard contents:
+
+| Option                  | Description                                                                 | Example                          |
+|-------------------------|-----------------------------------------------------------------------------|----------------------------------|
+| **ALL CAPS**            | Every letter uppercase                                                      | `hello world` → `HELLO WORLD`   |
+| **Title Case**          | Capitalize each word; articles, conjunctions, and short prepositions stay lowercase (first and last word always capitalized) | `the lord of the rings` → `The Lord of the Rings` |
+| **Capitalize Each Word**| Uppercase only the first letter of each word, leave remaining letters as-is | `hELLO wORLD` → `HELLO WORLD`   |
+
+Minor words kept lowercase in Title Case: `a an the and but or nor for so yet at by in of on to up as via`
+
+---
+
+## General Utilities (`utilities/General.ahk`)
+
+| Shortcut             | Action                         |
+|----------------------|--------------------------------|
+| `Ctrl+Shift+Alt+P`   | Show current mouse coordinates |
+
+---
+
 ## WippZoom Shortcuts (`macros/WippZoom.ahk`)
 
 | Shortcut                | Action                              |
 |-------------------------|-------------------------------------|
-| `Ctrl+Shift+Alt+P`      | Show current mouse coordinates      |
 | `Ctrl+Shift+Alt+Left`   | Refresh match (click MatchRefresh)  |
 | `Ctrl+Shift+Alt+Right`  | Swap                                |
 | `Ctrl+Shift+Alt+Up`     | Refresh size, increment up          |

@@ -16,12 +16,6 @@ SwapBtnY := 345
 RefreshSizeBtnX := 1859
 RefreshSizeBtnY := 418
 
-; Ctrl+Shift+Alt+P — show current mouse position
-^+!p:: {
-    MouseGetPos &mx, &my
-    MsgBox "Mouse is at X=" mx "  Y=" my, "WippZoom Picker", 64
-}
-
 ^+!Left:: {
     MouseGetPos &origX, &origY
     Click origX, origY

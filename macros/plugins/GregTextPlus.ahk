@@ -32,7 +32,7 @@ _dragActive := false
     Send "{LButton Up}"
 }
 
-^!s::
+^!w::
 {
     global _dragActive, Y_XPos, Y_YPos
     if _dragActive
@@ -41,14 +41,14 @@ _dragActive := false
     MouseMove Y_XPos, Y_YPos
     Send "{LButton Down}"
 }
-^!s Up::
+^!w Up::
 {
     global _dragActive
     _dragActive := false
     Send "{LButton Up}"
 }
 
-^!d::
+^!s::
 {
     global _dragActive, Size_XPos, Size_YPos
     if _dragActive
@@ -57,7 +57,7 @@ _dragActive := false
     MouseMove Size_XPos, Size_YPos
     Send "{LButton Down}"
 }
-^!d Up::
+^!s Up::
 {
     global _dragActive
     _dragActive := false

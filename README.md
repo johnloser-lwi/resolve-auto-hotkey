@@ -4,7 +4,17 @@ AutoHotkey v2 macros for DaVinci Resolve. All shortcuts are active **only when R
 
 ---
 
+## Plugin Mode (`Ctrl+Alt+Q`)
+
+WippZoom and GregTextPlus are mutually exclusive — only one is active at a time. Press `Ctrl+Alt+Q` to open a menu and select the active plugin. This frees up shortcut space that would otherwise be wasted keeping both active simultaneously.
+
+To add a future plugin: drop its `.ahk` file in `macros/plugins/`, add its name to `_pluginModes` in `ResolveMacros.ahk`, and add a `#HotIf ... && IsMode("Name")` + `#Include` block.
+
+---
+
 ## Edit Shortcuts (`macros/Edit.ahk`)
+
+Always active in Resolve, regardless of plugin mode.
 
 ### Editing
 
@@ -38,6 +48,35 @@ AutoHotkey v2 macros for DaVinci Resolve. All shortcuts are active **only when R
 
 ---
 
+## GregTextPlus Plugin (`macros/plugins/GregTextPlus.ahk`)
+
+Hold the shortcut to move the mouse to that control and hold the left button down. Drag left/right to adjust the value. Release the key to let go.
+
+| Shortcut         | Action       |
+|------------------|--------------|
+| `Ctrl+Alt+A`     | Drag X       |
+| `Ctrl+Alt+W`     | Drag Y       |
+| `Ctrl+Alt+S`     | Drag Size    |
+
+> **Setup:** Update the control coordinates at the top of `macros/plugins/GregTextPlus.ahk`.
+> Hover over each slider in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
+
+---
+
+## WippZoom Plugin (`macros/plugins/WippZoom.ahk`)
+
+| Shortcut       | Action                             |
+|----------------|------------------------------------|
+| `Ctrl+Alt+A`   | Refresh match (click MatchRefresh) |
+| `Ctrl+Alt+D`   | Swap                               |
+| `Ctrl+Alt+W`   | Refresh size, increment up         |
+| `Ctrl+Alt+S`   | Refresh size, increment down       |
+
+> **Setup:** Update the button coordinates at the top of `macros/plugins/WippZoom.ahk`.
+> Hover over each button in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
+
+---
+
 ## Clipboard Utilities (`utilities/Clipboard.ahk`)
 
 | Shortcut             | Action                        |
@@ -64,22 +103,9 @@ Minor words kept lowercase in Title Case: `a an the and but or nor for so yet at
 
 ---
 
-## WippZoom Shortcuts (`macros/WippZoom.ahk`)
-
-| Shortcut                | Action                              |
-|-------------------------|-------------------------------------|
-| `Ctrl+Shift+Alt+Left`   | Refresh match (click MatchRefresh)  |
-| `Ctrl+Shift+Alt+Right`  | Swap                                |
-| `Ctrl+Shift+Alt+Up`     | Refresh size, increment up          |
-| `Ctrl+Shift+Alt+Down`   | Refresh size, increment down        |
-
-> **Setup:** Before using WippZoom, update the button coordinates in `macros/WippZoom.ahk`.
-> Hover over each button in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
-
----
-
 ## Usage
 
 1. Install [AutoHotkey v2](https://www.autohotkey.com/)
 2. Run `ResolveMacros.ahk`
 3. Open DaVinci Resolve — shortcuts activate automatically
+4. Press `Ctrl+Alt+Q` to select the active plugin (defaults to GregTextPlus)

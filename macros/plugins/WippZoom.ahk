@@ -16,14 +16,14 @@ SwapBtnY := 345
 RefreshSizeBtnX := 1859
 RefreshSizeBtnY := 418
 
-^+!Left:: {
+^!a:: {
     MouseGetPos &origX, &origY
     Click origX, origY
     Click MatchRefreshBtnX, MatchRefreshBtnY
     Click origX, origY
 }
 
-^+!Right:: {
+^!d:: {
     MouseGetPos &origX, &origY
     Click origX, origY
     Click SwapBtnX, SwapBtnY
@@ -31,7 +31,7 @@ RefreshSizeBtnY := 418
 }
 
 ; Ctrl+Shift+Alt+Up — click and send Up
-^+!Up:: {
+^!w:: {
     MouseGetPos &origX, &origY
     Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY
@@ -41,7 +41,7 @@ RefreshSizeBtnY := 418
 }
 
 ; Ctrl+Shift+Alt+Down — click and send Down
-^+!Down:: {
+^!s:: {
     MouseGetPos &origX, &origY
     Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY

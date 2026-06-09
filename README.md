@@ -4,17 +4,25 @@ AutoHotkey v2 macros for DaVinci Resolve. All shortcuts are active **only when R
 
 ---
 
+## Macro Layout (`Ctrl+Shift+Q`)
+
+Press `Ctrl+Shift+Q` to open a menu and select the active macro layout. Each layout represents a DaVinci Resolve page. Select **None** to disable all macros entirely. Defaults to **Edit**.
+
+To add a future layout: create its `.ahk` file in `macros/`, add its name to `_macroModes` in `macros/Macros.ahk`, and add a `#HotIf WinActive(...) && IsMacroMode("Name")` + `#Include` block in the same file.
+
+---
+
 ## Plugin Mode (`Ctrl+Alt+Q`)
 
-WippZoom and GregTextPlus are mutually exclusive — only one is active at a time. Press `Ctrl+Alt+Q` to open a menu and select the active plugin. This frees up shortcut space that would otherwise be wasted keeping both active simultaneously.
+WippZoom and GregTextPlus are mutually exclusive — only one is active at a time. Press `Ctrl+Alt+Q` to open a menu and select the active plugin. Select **None** to disable all plugins. This frees up shortcut space that would otherwise be wasted keeping both active simultaneously.
 
-To add a future plugin: drop its `.ahk` file in `macros/plugins/`, add its name to `_pluginModes` in `ResolveMacros.ahk`, and add a `#HotIf ... && IsMode("Name")` + `#Include` block.
+To add a future plugin: drop its `.ahk` file in `plugins/`, add its name to `_pluginModes` in `plugins/Plugins.ahk`, and add a `#HotIf ... && IsMode("Name")` + `#Include` block in the same file.
 
 ---
 
 ## Edit Shortcuts (`macros/Edit.ahk`)
 
-Always active in Resolve, regardless of plugin mode.
+Active in Resolve when the macro layout is set to **Edit** (the default).
 
 ### Editing
 
@@ -50,7 +58,7 @@ Always active in Resolve, regardless of plugin mode.
 
 ---
 
-## GregTextPlus Plugin (`macros/plugins/GregTextPlus.ahk`)
+## GregTextPlus Plugin (`plugins/GregTextPlus.ahk`)
 
 Hold the shortcut to move the mouse to that control and hold the left button down. Drag left/right to adjust the value. Release the key to let go.
 
@@ -60,12 +68,12 @@ Hold the shortcut to move the mouse to that control and hold the left button dow
 | `Ctrl+Alt+W`     | Drag Y       |
 | `Ctrl+Alt+S`     | Drag Size    |
 
-> **Setup:** Update the control coordinates at the top of `macros/plugins/GregTextPlus.ahk`.
+> **Setup:** Update the control coordinates at the top of `plugins/GregTextPlus.ahk`.
 > Hover over each slider in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
 
 ---
 
-## WippZoom Plugin (`macros/plugins/WippZoom.ahk`)
+## WippZoom Plugin (`plugins/WippZoom.ahk`)
 
 | Shortcut       | Action                             |
 |----------------|------------------------------------|
@@ -74,7 +82,7 @@ Hold the shortcut to move the mouse to that control and hold the left button dow
 | `Ctrl+Alt+W`   | Refresh size, increment up         |
 | `Ctrl+Alt+S`   | Refresh size, increment down       |
 
-> **Setup:** Update the button coordinates at the top of `macros/plugins/WippZoom.ahk`.
+> **Setup:** Update the button coordinates at the top of `plugins/WippZoom.ahk`.
 > Hover over each button in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
 
 ---
@@ -112,4 +120,5 @@ Minor words kept lowercase in Title Case: `a an the and but or nor for so yet at
 1. Install [AutoHotkey v2](https://www.autohotkey.com/)
 2. Run `ResolveMacros.ahk`
 3. Open DaVinci Resolve — shortcuts activate automatically
-4. Press `Ctrl+Alt+Q` to select the active plugin (defaults to GregTextPlus)
+4. Press `Ctrl+Shift+Q` to select the active macro layout (defaults to Edit)
+5. Press `Ctrl+Alt+Q` to select the active plugin (defaults to GregTextPlus)

@@ -6,9 +6,8 @@
 
 
 
-; Davinci Resolve Macros
-#HotIf WinActive("ahk_exe Resolve.exe")
-#Include macros\Edit.ahk
+; Macro layout switcher (Ctrl+Shift+Q)
+#Include macros\Macros.ahk
 
 ; Plugin mode system
-#Include macros\plugins\Plugins.ahk
+#Include plugins\Plugins.ahk

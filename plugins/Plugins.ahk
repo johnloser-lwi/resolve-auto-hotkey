@@ -13,6 +13,7 @@ SetMode(name, *) {
 
 
 _pluginMenu := Menu()
+_pluginMenu.Add("None", SetMode)
 for name in _pluginModes {
     _pluginMenu.Add(name, SetMode)
 }

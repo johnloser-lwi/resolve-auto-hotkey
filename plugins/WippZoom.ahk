@@ -18,34 +18,30 @@ RefreshSizeBtnY := 418
 
 ^!a:: {
     MouseGetPos &origX, &origY
-    Click origX, origY
     Click MatchRefreshBtnX, MatchRefreshBtnY
-    Click origX, origY
+    MouseMove origX, origY
 }
 
 ^!d:: {
     MouseGetPos &origX, &origY
-    Click origX, origY
     Click SwapBtnX, SwapBtnY
-    Click origX, origY
+    MouseMove origX, origY
 }
 
 ; Ctrl+Shift+Alt+Up — click and send Up
 ^!w:: {
     MouseGetPos &origX, &origY
-    Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Up}"
-    Click origX, origY
+    MouseMove origX, origY
 }
 
 ; Ctrl+Shift+Alt+Down — click and send Down
 ^!s:: {
     MouseGetPos &origX, &origY
-    Click origX, origY
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Down}"
-    Click origX, origY
+    MouseMove origX, origY
 }

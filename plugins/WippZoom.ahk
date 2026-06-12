@@ -34,6 +34,7 @@ RefreshSizeBtnY := 418
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Up}"
+    Click RefreshSizeBtnX + 50, RefreshSizeBtnY
     MouseMove origX, origY
 }
 
@@ -43,5 +44,6 @@ RefreshSizeBtnY := 418
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Down}"
+    Click RefreshSizeBtnX + 50, RefreshSizeBtnY
     MouseMove origX, origY
 }

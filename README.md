@@ -35,12 +35,12 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 | `Shift+F2`     | Trim End                                  |
 | `Shift+F3`     | Drag Trim (hold to drag, release to exit) |
 | `Alt+Shift+D` | Duplicate clip to track above             |
+| `Shift+Space` | Move playhead to cursor and play (press again to speed up) |
 
 ### Generators / Titles
 
 | Shortcut   | Action                   |
 |------------|--------------------------|
-| `F4`       | Greg's Text+             |
 | `F5`       | Adjustment Clip          |
 | `F6`       | Fusion Composition       |
 | `F7`       | Gradual Animation Layer  |

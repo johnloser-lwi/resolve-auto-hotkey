@@ -24,10 +24,7 @@ _dragActive := false
     _dragActive := true
     MouseMove X_XPos, X_YPos
     Send "{LButton Down}"
-}
-^!a Up::
-{
-    global _dragActive
+    KeyWait "a"
     _dragActive := false
     Send "{LButton Up}"
 }
@@ -40,10 +37,7 @@ _dragActive := false
     _dragActive := true
     MouseMove Y_XPos, Y_YPos
     Send "{LButton Down}"
-}
-^!w Up::
-{
-    global _dragActive
+    KeyWait "w"
     _dragActive := false
     Send "{LButton Up}"
 }
@@ -56,10 +50,7 @@ _dragActive := false
     _dragActive := true
     MouseMove Size_XPos, Size_YPos
     Send "{LButton Down}"
-}
-^!s Up::
-{
-    global _dragActive
+    KeyWait "s"
     _dragActive := false
     Send "{LButton Up}"
 }

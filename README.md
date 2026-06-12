@@ -58,6 +58,22 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 
 ---
 
+## Caption Shortcuts (`macros/Caption.ahk`)
+
+Active in Resolve when the macro layout is set to **Caption**.
+
+Closes gaps between subtitles by copying the in-point of the selected subtitle into the out-point of the previous subtitle.
+
+| Shortcut | Action              |
+|----------|---------------------|
+| `F1`     | Start loop          |
+| `F2`     | Stop loop           |
+
+> **Setup:** Update the field coordinates at the top of `macros/Caption.ahk`.
+> Hover over each field in Resolve and press `Ctrl+Shift+Alt+P` to get the X/Y values.
+
+---
+
 ## GregTextPlus Plugin (`plugins/GregTextPlus.ahk`)
 
 Hold the shortcut to move the mouse to that control and hold the left button down. Drag left/right to adjust the value. Release the key to let go.

@@ -7,16 +7,18 @@ IsMode(mode) {
 }
 
 SetMode(name, *) {
-    global _pluginMode
+    global _pluginMode, _pluginMenu
+    _pluginMenu.Uncheck(_pluginMode)
     _pluginMode := name
+    _pluginMenu.Check(_pluginMode)
 }
-
 
 _pluginMenu := Menu()
 _pluginMenu.Add("None", SetMode)
 for name in _pluginModes {
     _pluginMenu.Add(name, SetMode)
 }
+_pluginMenu.Check(_pluginMode)
 
 ^!q::_pluginMenu.Show()
 

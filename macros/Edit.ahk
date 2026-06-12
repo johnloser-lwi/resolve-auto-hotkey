@@ -101,14 +101,17 @@ _trimDown := false
     Send "{Up}"
 }
 
+; Move Playhead to cursor location and play, press multiple time to speed up
++Space:: {
+    Send "{Tab}"
+    Sleep 50
+    Send "l"
+}
+
 ; =======================================
 ; Titles/Generators/Effects
 ; =======================================
 
-; Greg's Text+
-F4:: {
-    Spawn("Greg's Text+")
-}
 
 ; Adjustment Clip
 F5:: {

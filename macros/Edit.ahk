@@ -112,6 +112,10 @@ _trimDown := false
 ; Titles/Generators/Effects
 ; =======================================
 
+; Greg's Text+
+F4:: {
+    Spawn("Greg's Text+")
+}
 
 ; Adjustment Clip
 F5:: {

@@ -16,7 +16,7 @@ CopyInToOut() {
     Send "^c"
 
     Click PREV_XPos, PREV_YPos
-    Sleep 100
+    Sleep 500
 
     Click OUT_XPos, OUT_YPos
     Send "^a"
@@ -39,4 +39,12 @@ F1:: {
 F2:: {
     global _captionRunning
     _captionRunning := false
+}
+
+; Manual Copy
+F3:: {
+    MouseGetPos &origX, &origY
+    MouseClick
+    CopyInToOut()
+    MouseMove origX, origY
 }

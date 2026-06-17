@@ -16,41 +16,27 @@ Size_YPos := 566
 
 _dragActive := false
 
-^!a::
-{
-    global _dragActive, X_XPos, X_YPos
+_DragWhileHeld(xPos, yPos, key) {
+    global _dragActive
     if _dragActive
         return
     _dragActive := true
-    MouseMove X_XPos, X_YPos
+    MouseMove xPos, yPos
     Send "{LButton Down}"
-    KeyWait "a"
+    ih := InputHook("L0 V")
+    ih.KeyOpt("{All}", "E")
+    ih.Start()
+    while ih.InProgress && GetKeyState(key, "P") && GetKeyState("Ctrl", "P") && GetKeyState("Alt", "P")
+        Sleep 10
+    ih.Stop()
     _dragActive := false
     Send "{LButton Up}"
+    if !GetKeyState("Ctrl", "P")
+        Send "{Ctrl Up}"
+    if !GetKeyState("Alt", "P")
+        Send "{Alt Up}"
 }
 
-^!w::
-{
-    global _dragActive, Y_XPos, Y_YPos
-    if _dragActive
-        return
-    _dragActive := true
-    MouseMove Y_XPos, Y_YPos
-    Send "{LButton Down}"
-    KeyWait "w"
-    _dragActive := false
-    Send "{LButton Up}"
-}
-
-^!s::
-{
-    global _dragActive, Size_XPos, Size_YPos
-    if _dragActive
-        return
-    _dragActive := true
-    MouseMove Size_XPos, Size_YPos
-    Send "{LButton Down}"
-    KeyWait "s"
-    _dragActive := false
-    Send "{LButton Up}"
-}
+^!a:: _DragWhileHeld(X_XPos, X_YPos, "a")
+^!w:: _DragWhileHeld(Y_XPos, Y_YPos, "w")
+^!s:: _DragWhileHeld(Size_XPos, Size_YPos, "s")

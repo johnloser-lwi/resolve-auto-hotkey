@@ -76,18 +76,6 @@ F2:: {
 
 
 _trimDown := false
-_shiftSpaceActive := false
-
-~$LShift Up:: {
-    global _shiftSpaceActive
-    _shiftSpaceActive := false
-}
-
-~$RShift Up:: {
-    global _shiftSpaceActive
-    _shiftSpaceActive := false
-}
-
 +F3:: {
     global _trimDown
     if _trimDown
@@ -111,20 +99,6 @@ _shiftSpaceActive := false
     Send "!{Up}"
     Send "^v"
     Send "{Up}"
-}
-
-; Move Playhead to cursor location and play, press multiple time to speed up
-; $ prefix prevents Send "+{Space}" below from re-triggering this hotkey
-$+Space:: {
-    global _shiftSpaceActive
-    if (A_PriorKey = "LShift" or A_PriorKey = "RShift" or _shiftSpaceActive) {
-        _shiftSpaceActive := true
-        Send "{Tab}"
-        Sleep 50
-        Send "l"
-    } else {
-        Send "+{Space}"
-    }
 }
 
 ; =======================================

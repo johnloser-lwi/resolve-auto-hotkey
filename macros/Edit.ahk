@@ -64,26 +64,7 @@ F2:: {
     DoEdit("w")
 }
 
-; Trim Start
-+F1:: {
-    DoEdit("a")
-}   
 
-; Trim End
-+F2:: {
-    DoEdit("s")
-}
-
-
-_trimDown := false
-+F3:: {
-    global _trimDown
-    if _trimDown
-        return
-    _trimDown := true
-    Send "c"
-    Send "{LButton Down}"
-}
 
 +F3 Up:: {
     global _trimDown
@@ -128,6 +109,21 @@ F7:: {
 F8:: {
     Spawn("Basic Mask", true)
     Send "^+!9"
+}
+
+; Fade Right Animation
++F1:: {
+    Spawn("AnimateAtoBEffect_FadeRight", true)
+}
+
+; Fade Left Animation
++F2:: {
+    Spawn("AnimateAtoBEffect_FadeLeft", true)
+}
+
+; Fade Down Animation
++F3:: {
+    Spawn("AnimateAtoBEffect_FadeDown", true)
 }
 
 ; Fade Up Animation

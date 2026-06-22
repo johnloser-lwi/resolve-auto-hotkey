@@ -26,15 +26,12 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 
 ### Editing
 
-| Shortcut      | Action                                    |
-|---------------|-------------------------------------------|
-| `F1`          | Ripple Start                              |
-| `F2`          | Ripple End                                |
-| `F3`          | Cut                                       |
-| `Shift+F1`     | Trim Start                                |
-| `Shift+F2`     | Trim End                                  |
-| `Shift+F3`     | Drag Trim (hold to drag, release to exit) |
-| `Alt+Shift+D` | Duplicate clip to track above             |
+| Shortcut      | Action                        |
+|---------------|-------------------------------|
+| `F1`          | Ripple Start                  |
+| `F2`          | Ripple End                    |
+| `F3`          | Cut                           |
+| `Alt+Shift+D` | Duplicate clip to track above |
 
 ### Generators / Titles
 
@@ -50,6 +47,9 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 | Shortcut   | Action                    |
 |------------|---------------------------|
 | `F8`       | Basic Mask                |
+| `Shift+F1` | Fade Right Animation      |
+| `Shift+F2` | Fade Left Animation       |
+| `Shift+F3` | Fade Down Animation       |
 | `Shift+F4` | Fade Up Animation         |
 | `Shift+F5` | Push Up Animation         |
 | `Shift+F6` | WippMarker Clean          |

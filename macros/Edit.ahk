@@ -48,10 +48,7 @@ DeselectAll()
 ; Cut
 F3:: {
     DoEdit("b")
-    Sleep 100
-    MouseMove 20, 0, 50, "R"
-    MouseClick
-    MouseMove -20, 0, 50, "R"
+    Send "^!+{Right}"
 }
 
 ; Ripple Start
@@ -149,4 +146,10 @@ F8:: {
 ; Underlay
 +F8:: {
     Spawn("WippUnderlay")
+}
+
+; Render in place
+!+3:: {
+    Send "^+!1"
+    Send "!+3"
 }

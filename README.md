@@ -26,12 +26,18 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 
 ### Editing
 
-| Shortcut      | Action                        |
-|---------------|-------------------------------|
-| `F1`          | Ripple Start                  |
-| `F2`          | Ripple End                    |
-| `F3`          | Cut                           |
-| `Alt+Shift+D` | Duplicate clip to track above |
+| Shortcut        | Action                              |
+|-----------------|-------------------------------------|
+| `F1`            | Ripple Start                        |
+| `F2`            | Ripple End                          |
+| `F3`            | Cut and extend selection right      |
+| `Alt+Shift+D`   | Duplicate clip to track above       |
+
+### Rendering
+
+| Shortcut      | Action           |
+|---------------|------------------|
+| `Alt+Shift+3` | Render in place  |
 
 ### Generators / Titles
 

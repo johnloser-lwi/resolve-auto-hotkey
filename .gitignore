@@ -5,6 +5,12 @@
 # AutoHotkey v1 compiled
 *.ahk.exe
 
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
 # Windows
 Thumbs.db
 Desktop.ini

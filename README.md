@@ -128,6 +128,27 @@ Minor words kept lowercase in Title Case: `a an the and but or nor for so yet at
 
 ---
 
+## Open Project Folder (`utilities/OpenProjectFolder.ahk`)
+
+| Shortcut             | Action                                        |
+|----------------------|-----------------------------------------------|
+| `Ctrl+Shift+Alt+O`   | Open a project folder menu for current project |
+
+Reads the **Project media location** working folder from the current Resolve project's settings (Project Settings → General Options → Working Folders), derives the project root from it, and pops up a menu to open one of these folders in Explorer:
+
+1. ARoll (`Captures\ARoll`)
+2. BRoll (`Captures\BRoll`)
+3. Audio (`Captures\Audio`)
+4. Images
+5. Footages
+6. Project Root
+
+Press the number key or click the button; `Esc` closes the menu.
+
+> **Requirements:** Python 3 on PATH (launched via `pythonw.exe`), Resolve running with external scripting enabled, and the project's "Project media location" set to the `ProjectMedia` folder inside the project directory. Logic lives in `utilities/open_project_folder.py`.
+
+---
+
 ## General Utilities (`utilities/General.ahk`)
 
 | Shortcut             | Action                         |

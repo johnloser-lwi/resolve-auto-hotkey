@@ -3,6 +3,7 @@
 ; General Utilities
 #Include utilities\General.ahk
 #Include utilities\Clipboard.ahk
+#Include utilities\OpenProjectFolder.ahk
 
 
 

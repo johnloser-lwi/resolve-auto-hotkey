@@ -25,6 +25,7 @@ FOLDERS = [
     ("Audio", os.path.join("Captures", "Audio")),
     ("Images", "Images"),
     ("Footages", "Footages"),
+    ("Exports", "_Exports"),
     ("Project Root", ""),
 ]
 

@@ -141,7 +141,8 @@ Reads the **Project media location** working folder from the current Resolve pro
 3. Audio (`Captures\Audio`)
 4. Images
 5. Footages
-6. Project Root
+6. Exports (`_Exports`)
+7. Project Root
 
 Press the number key or click the button; `Esc` closes the menu.
 

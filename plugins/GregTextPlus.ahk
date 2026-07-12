@@ -22,19 +22,20 @@ _DragWhileHeld(xPos, yPos, key) {
         return
     _dragActive := true
     MouseMove xPos, yPos
-    Send "{LButton Down}"
-    ih := InputHook("L0 V")
-    ih.KeyOpt("{All}", "E")
-    ih.Start()
-    while ih.InProgress && GetKeyState(key, "P") && GetKeyState("Ctrl", "P") && GetKeyState("Alt", "P")
+    ; {Blind} keeps Send from releasing/re-pressing the physically held
+    ; Ctrl+Alt around the click — that juggling is what left modifiers stuck.
+    Send "{Blind}{LButton Down}"
+    while GetKeyState(key, "P") && GetKeyState("Ctrl", "P") && GetKeyState("Alt", "P")
         Sleep 10
-    ih.Stop()
+    Send "{Blind}{LButton Up}"
+    ; once everything is physically released, clear any logically stuck modifiers
+    KeyWait "Ctrl"
+    KeyWait "Alt"
+    for mod in ["LCtrl", "RCtrl", "LAlt", "RAlt", "LShift", "RShift"] {
+        if GetKeyState(mod)
+            Send "{Blind}{" mod " up}"
+    }
     _dragActive := false
-    Send "{LButton Up}"
-    if !GetKeyState("Ctrl", "P")
-        Send "{Ctrl Up}"
-    if !GetKeyState("Alt", "P")
-        Send "{Alt Up}"
 }
 
 ^!a:: _DragWhileHeld(X_XPos, X_YPos, "a")

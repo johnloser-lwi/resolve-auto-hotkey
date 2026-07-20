@@ -1,4 +1,4 @@
-_macroModes := ["Edit", "Caption"]
+_macroModes := ["Edit"]
 _macroMode  := _macroModes[1]
 
 IsMacroMode(mode) {
@@ -25,10 +25,5 @@ _macroMenu.Check(_macroMode)
 
 #HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Edit")
 #Include Edit.ahk
-
-#HotIf
-
-#HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Caption")
-#Include Caption.ahk
 
 #HotIf

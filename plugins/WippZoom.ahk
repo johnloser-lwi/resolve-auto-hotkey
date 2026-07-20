@@ -7,14 +7,14 @@
 
 ; --- Configure click position ---
 ; Use Ctrl+Shift+Alt+P while hovering over the button to find coordinates
-MatchRefreshBtnX := 1694   ; <-- set me
-MatchRefreshBtnY := 345   ; <-- set me
+MatchRefreshBtnX := 2245   ; <-- set me
+MatchRefreshBtnY := 344   ; <-- set me
 
-SwapBtnX := 1768
-SwapBtnY := 345
+SwapBtnX := 2434
+SwapBtnY := 350
 
-RefreshSizeBtnX := 1859
-RefreshSizeBtnY := 418
+RefreshSizeBtnX := 2474
+RefreshSizeBtnY := 434
 
 ^!a:: {
     MouseGetPos &origX, &origY

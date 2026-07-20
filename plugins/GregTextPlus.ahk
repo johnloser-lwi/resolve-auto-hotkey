@@ -5,14 +5,14 @@
 ; ^ = Ctrl
 ; # = Win
 
-X_XPos := 1697
-X_YPos := 537
+X_XPos := 2344
+X_YPos := 535
 
-Y_XPos := 1847
-Y_YPos := 538
+Y_XPos := 2474
+Y_YPos := 528
 
-Size_XPos := 1834
-Size_YPos := 566
+Size_XPos := 2479
+Size_YPos := 554
 
 _dragActive := false
 

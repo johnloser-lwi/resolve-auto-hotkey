@@ -9,10 +9,10 @@ X_XPos := 2344
 X_YPos := 535
 
 Y_XPos := 2474
-Y_YPos := 528
+Y_YPos := 535
 
 Size_XPos := 2479
-Size_YPos := 554
+Size_YPos := 568
 
 _dragActive := false
 

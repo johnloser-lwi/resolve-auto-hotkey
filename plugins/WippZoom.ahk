@@ -13,8 +13,8 @@ MatchRefreshBtnY := 344   ; <-- set me
 SwapBtnX := 2434
 SwapBtnY := 350
 
-RefreshSizeBtnX := 2474
-RefreshSizeBtnY := 434
+RefreshSizeBtnX := 2477
+RefreshSizeBtnY := 428
 
 ^!a:: {
     MouseGetPos &origX, &origY
@@ -34,7 +34,7 @@ RefreshSizeBtnY := 434
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Up}"
-    Click RefreshSizeBtnX + 50, RefreshSizeBtnY
+    Click RefreshSizeBtnX + 30, RefreshSizeBtnY
     MouseMove origX, origY
 }
 
@@ -44,6 +44,6 @@ RefreshSizeBtnY := 434
     Click RefreshSizeBtnX, RefreshSizeBtnY
     Send "{Right}"
     Send "{Down}"
-    Click RefreshSizeBtnX + 50, RefreshSizeBtnY
+    Click RefreshSizeBtnX + 30, RefreshSizeBtnY
     MouseMove origX, origY
 }

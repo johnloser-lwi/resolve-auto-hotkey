@@ -134,6 +134,16 @@ Press the number key or click the button; `Esc` closes the menu.
 
 ---
 
+## Explorer Focus (`utilities/ExplorerFocus.ahk`)
+
+| Shortcut | Action                                            |
+|----------|---------------------------------------------------|
+| `Win+E`  | Focus the existing File Explorer window (or open one) |
+
+Hijacks the Windows `Win+E` shortcut. Instead of always spawning a new window, it activates the most-recent open File Explorer window; if none is open it opens a new one. Active globally, not just in Resolve.
+
+---
+
 ## General Utilities (`utilities/General.ahk`)
 
 | Shortcut             | Action                         |

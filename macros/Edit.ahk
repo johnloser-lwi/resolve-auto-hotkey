@@ -5,6 +5,7 @@
 ; ^ = Ctrl
 ; # = Win
 
+
 ; Adding Generators/Effects/Titles
 Spawn(name, isEffect := false)
 {

@@ -1,4 +1,4 @@
-_macroModes := ["Edit", "Fusion", "Color", "Fairlight"]
+_macroModes := ["Edit", "Fusion", "Color", "Fairlight", "Delivery"]
 _macroMode  := _macroModes[1]
 
 IsMacroMode(mode) {
@@ -54,25 +54,29 @@ shellMessage(wParam, lParam, msg, hwnd) {
             title := "Unknown"
         
         if InStr(title, "DaVinci Resolve") {
-            RefreshLayoutAndProfile()
+            RefreshLayoutAndProfile(false)
         }
     }
 }
 
-RefreshLayoutAndProfile() {
+RefreshLayoutAndProfile(swithPage := true) {
     if IsMacroMode("Edit") {
-        Send "+4"
+        if swithPage {
+            Send "+4"
+        }
         SendCommand("Profile SET DavinciResolve")
     } else if IsMacroMode("Fusion") {
-        Send "h"
-        ;Send "+5"
+        if swithPage Send("h")
         SendCommand("Profile SET Resolve-Fusion")
     } else if IsMacroMode("Color") {
-        Send "+6"
+        if swithPage Send("+6")
         SendCommand("Profile SET Resolve-Color")
     } else if IsMacroMode("Fairlight") {
-        Send "+7"
+        if swithPage Send("+7")
         SendCommand("Profile SET Resolve-Fairlight")
+    } else if IsMacroMode("Delivery") {
+        if swithPage Send("+8")
+        SendCommand("Profile SET Resolve-Delivery")
     }
 }
 
@@ -110,3 +114,8 @@ _macroMenu.Check(_macroMode)
 #HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Fairlight")
 #Include Fairlight.ahk
 #HotIf
+
+#HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Delivery")
+#Include Delivery.ahk
+#HotIf
+

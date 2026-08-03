@@ -40,11 +40,26 @@ SendCommand(Command) {
     return response
 }
 
-SetMacroMode(name, *) {
-    global _macroMode, _macroMenu
-    _macroMenu.Uncheck(_macroMode)
-    _macroMode := name
-    _macroMenu.Check(_macroMode)
+; WindowSwitch Callback to update the profile
+DllCall("RegisterShellHookWindow", "Ptr", A_ScriptHwnd)
+msgNum := DllCall("RegisterWindowMessage", "Str", "SHELLHOOK")
+OnMessage(msgNum, shellMessage)
+
+shellMessage(wParam, lParam, msg, hwnd) {
+    ; HSHELL_WINDOWACTIVATED = 4, HSHELL_RUDEAPPACTIVATED = 32772 (0x8004)
+    if (wParam = 4 || wParam = 32772) {
+        activeHwnd := lParam
+        try title := WinGetTitle(activeHwnd)
+        catch
+            title := "Unknown"
+        
+        if InStr(title, "DaVinci Resolve") {
+            RefreshLayoutAndProfile()
+        }
+    }
+}
+
+RefreshLayoutAndProfile() {
     if IsMacroMode("Edit") {
         Send "+4"
         SendCommand("Profile SET DavinciResolve")
@@ -59,6 +74,14 @@ SetMacroMode(name, *) {
         Send "+7"
         SendCommand("Profile SET Resolve-Fairlight")
     }
+}
+
+SetMacroMode(name, *) {
+    global _macroMode, _macroMenu
+    _macroMenu.Uncheck(_macroMode)
+    _macroMode := name
+    _macroMenu.Check(_macroMode)
+    RefreshLayoutAndProfile()
 }
 
 _macroMenu := Menu()

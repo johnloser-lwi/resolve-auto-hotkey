@@ -7,20 +7,17 @@ IsMode(mode) {
 }
 
 SetMode(name, *) {
-    global _pluginMode, _pluginMenu
-    _pluginMenu.Uncheck(_pluginMode)
+    global _pluginMode
     _pluginMode := name
-    _pluginMenu.Check(_pluginMode)
 }
 
-_pluginMenu := Menu()
-_pluginMenu.Add("None", SetMode)
+; "None" disables all plugins; ShowHoldMenu is defined in macros/Macros.ahk.
+_pluginMenuItems := []
 for name in _pluginModes {
-    _pluginMenu.Add(name, SetMode)
+    _pluginMenuItems.Push(name)
 }
-_pluginMenu.Check(_pluginMode)
 
-^!q::_pluginMenu.Show()
+^!q::ShowHoldMenu(_pluginMenuItems, "q", SetMode, _pluginMode)
 
 
 #HotIf WinActive("ahk_exe Resolve.exe") && IsMode("GregTextPlus")

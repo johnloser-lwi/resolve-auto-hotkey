@@ -68,6 +68,7 @@ RefreshLayoutAndProfile(swithPage := true) {
     } else if IsMacroMode("Fusion") {
         if swithPage {
             Send "h"
+            Send "+5"
         }
         SendCommand("Profile SET Resolve-Fusion")
     } else if IsMacroMode("Color") {
@@ -89,21 +90,78 @@ RefreshLayoutAndProfile(swithPage := true) {
 }
 
 SetMacroMode(name, *) {
-    global _macroMode, _macroMenu
-    _macroMenu.Uncheck(_macroMode)
+    global _macroMode
     _macroMode := name
-    _macroMenu.Check(_macroMode)
     RefreshLayoutAndProfile()
 }
 
-_macroMenu := Menu()
-_macroMenu.Add("None", SetMacroMode)
+_macroMenuItems := []
 for name in _macroModes {
-    _macroMenu.Add(name, SetMacroMode)
+    _macroMenuItems.Push(name)
 }
-_macroMenu.Check(_macroMode)
 
-^+q::_macroMenu.Show()
+_holdMenuOpen := false
+
+; Hold-to-select menu. Opens centered on the cursor and stays up while `key` is
+; physically held; move the cursor over an item to highlight it, then release
+; `key` to trigger it — no clicking. Releasing off the menu cancels.
+;
+; A native Menu can't do this: Menu.Show() blocks AHK's thread inside Windows'
+; modal menu loop, so timers never fire and #HotIf can't be evaluated. A Gui
+; doesn't block, so we poll the key and hover state ourselves.
+ShowHoldMenu(items, key, callback, checked := "") {
+    global _holdMenuOpen
+    if _holdMenuOpen
+        return
+    _holdMenuOpen := true
+
+    rowH := 26, w := 180, h := items.Length * rowH
+    bg := "202020", bgHi := "0A64C8"
+
+    g := Gui("-Caption +AlwaysOnTop +ToolWindow +E0x08000000")  ; NoActivate
+    g.MarginX := 0, g.MarginY := 0
+    g.BackColor := bg
+    g.SetFont("s10 cWhite", "Segoe UI")
+
+    rows := []
+    for i, name in items {
+        label := (name = checked ? "• " : "") name
+        rows.Push(g.Add("Text", Format("x0 y{1} w{2} h{3} Center Background{4} +0x200"
+            , (i - 1) * rowH, w, rowH, bg), label))
+    }
+
+    MouseGetPos &mx, &my
+    g.Show(Format("x{1} y{2} w{3} h{4} NoActivate", mx - w // 2, my - h // 2, w, h))
+
+    hot := 0   ; index of the currently highlighted row, 0 = none
+    watch() {
+        global _holdMenuOpen
+        g.GetPos(&gx, &gy)
+        MouseGetPos &cx, &cy
+        idx := 0
+        if (cx >= gx && cx < gx + w && cy >= gy && cy < gy + h)
+            idx := (cy - gy) // rowH + 1
+
+        if (idx != hot) {   ; repaint only on change to avoid flicker
+            if hot
+                rows[hot].Opt("Background" bg), rows[hot].Redraw()
+            if idx
+                rows[idx].Opt("Background" bgHi), rows[idx].Redraw()
+            hot := idx
+        }
+
+        if !GetKeyState(key, "P") {   ; released — fire and close
+            SetTimer(watch, 0)
+            g.Destroy()
+            _holdMenuOpen := false
+            if hot
+                callback(items[hot])
+        }
+    }
+    SetTimer(watch, 15)
+}
+
+^+q::ShowHoldMenu(_macroMenuItems, "q", SetMacroMode, _macroMode)
 
 #HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Edit")
 #Include Edit.ahk

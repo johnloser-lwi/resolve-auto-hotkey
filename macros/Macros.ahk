@@ -66,16 +66,24 @@ RefreshLayoutAndProfile(swithPage := true) {
         }
         SendCommand("Profile SET DavinciResolve")
     } else if IsMacroMode("Fusion") {
-        if swithPage Send("h")
+        if swithPage {
+            Send "h"
+        }
         SendCommand("Profile SET Resolve-Fusion")
     } else if IsMacroMode("Color") {
-        if swithPage Send("+6")
+        if swithPage {
+            Send "+6"
+        }
         SendCommand("Profile SET Resolve-Color")
     } else if IsMacroMode("Fairlight") {
-        if swithPage Send("+7")
+        if swithPage {
+            Send "+7"
+        }
         SendCommand("Profile SET Resolve-Fairlight")
     } else if IsMacroMode("Delivery") {
-        if swithPage Send("+8")
+        if swithPage {
+            Send "+8"
+        }
         SendCommand("Profile SET Resolve-Delivery")
     }
 }
@@ -97,9 +105,9 @@ _macroMenu.Check(_macroMode)
 
 ^+q::_macroMenu.Show()
 
-
 #HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Edit")
 #Include Edit.ahk
+
 
 #HotIf
 

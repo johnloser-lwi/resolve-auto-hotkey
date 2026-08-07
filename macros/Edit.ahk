@@ -131,7 +131,7 @@ F8:: {
 
 ; Push Up Animation
 +F5:: {
-    Spawn("AnimateAtoBEffect_PushUp", true)
+    Spawn("Multi Transform", true)
 }
 
 ; WippMarker Clean

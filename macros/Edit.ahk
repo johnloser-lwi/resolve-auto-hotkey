@@ -89,15 +89,13 @@ F4:: {
     Spawn("Greg's Text+")
 }
 
-; Adjustment Clip
+; John Simple Fill
 F5:: {
-    Spawn("Adjustment Clip")
+    Spawn("John Simple Fill", true)
 }
 
-; Fusion Clip
+; John Simple Shadow
 F6:: {
-    Spawn("John Simple Fill", true)
-    Sleep 200
     Spawn("John Simple Shadow", true)
 }
 

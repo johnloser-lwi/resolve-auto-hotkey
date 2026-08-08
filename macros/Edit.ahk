@@ -96,7 +96,7 @@ F5:: {
 
 ; Fusion Clip
 F6:: {
-    Spawn("Fusion Composition")
+    Spawn("John Simple Fill", true)
 }
 
 F7:: {

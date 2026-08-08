@@ -97,6 +97,8 @@ F5:: {
 ; Fusion Clip
 F6:: {
     Spawn("John Simple Fill", true)
+    Sleep 200
+    Spawn("John Simple Shadow", true)
 }
 
 F7:: {

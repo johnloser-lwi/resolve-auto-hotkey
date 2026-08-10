@@ -5,6 +5,9 @@
 ; ^ = Ctrl
 ; # = Win
 
+; --- Control coordinates (SCREEN-absolute) ---
+; Use Ctrl+Shift+Alt+P while hovering over the slider and take the "Screen" row.
+; Screen mode is set globally in ResolveMacros.ahk.
 X_XPos := 2344
 X_YPos := 535
 

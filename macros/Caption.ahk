@@ -1,3 +1,6 @@
+; --- Field coordinates (SCREEN-absolute) ---
+; Use Ctrl+Shift+Alt+P while hovering over the field and take the "Screen" row.
+; Screen mode is set globally in ResolveMacros.ahk.
 IN_XPos := 1599
 IN_YPos := 240
 OUT_XPos := 1720

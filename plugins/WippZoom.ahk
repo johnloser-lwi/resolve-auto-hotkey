@@ -5,8 +5,10 @@
 ; ^ = Ctrl
 ; # = Win
 
-; --- Configure click position ---
-; Use Ctrl+Shift+Alt+P while hovering over the button to find coordinates
+; --- Configure click position (SCREEN-absolute) ---
+; Use Ctrl+Shift+Alt+P while hovering over the button and take the "Screen" row.
+; Screen mode is set globally in ResolveMacros.ahk; these break if Resolve is
+; moved, resized, or switched between single- and dual-screen layouts.
 MatchRefreshBtnX := 2245   ; <-- set me
 MatchRefreshBtnY := 344   ; <-- set me
 

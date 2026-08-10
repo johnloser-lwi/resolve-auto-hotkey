@@ -130,12 +130,20 @@ ShowHoldMenu(items, key, callback, checked := "") {
             , (i - 1) * rowH, w, rowH, bg), label))
     }
 
+    ; Gui.Show/GetPos always work in SCREEN coords, so the cursor must be read
+    ; in screen coords too. AHK v2 defaults Mouse to Client, which on a
+    ; multi-monitor desktop with negative origins puts the menu on the wrong
+    ; screen and breaks hover detection entirely.
+    CoordMode "Mouse", "Screen"
     MouseGetPos &mx, &my
     g.Show(Format("x{1} y{2} w{3} h{4} NoActivate", mx - w // 2, my - h // 2, w, h))
 
     hot := 0   ; index of the currently highlighted row, 0 = none
     watch() {
         global _holdMenuOpen
+        ; Timer callbacks run in a new thread, which inherits the auto-execute
+        ; default rather than the caller's CoordMode — so set it here as well.
+        CoordMode "Mouse", "Screen"
         g.GetPos(&gx, &gy)
         MouseGetPos &cx, &cy
         idx := 0

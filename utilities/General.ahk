@@ -31,3 +31,8 @@
         "Active window: " title
     ), "Pointer Location", 64
 }
+
+; RAMMAP
+^#!Delete:: {
+    Run('powershell.exe -Command "D:\_TaskScheduler\RAMMap64.exe -Et"',, 'Hide')
+}

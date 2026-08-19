@@ -71,13 +71,11 @@ F2:: {
     _trimDown := false
 } 
 
-!+d:: {
-    DeselectAll
-    MouseClick
+; create nested timeline, with copy
+^+c:: {
     Send "^c"
-    Send "!{Up}"
-    Send "^v"
-    Send "{Up}"
+    Sleep 200
+    Send "!+c"
 }
 
 ; =======================================

@@ -63,6 +63,25 @@ Active in Resolve when the macro layout is set to **Edit** (the default).
 
 ---
 
+## Fusion Shortcuts (`macros/Fusion.ahk`)
+
+Active in Resolve when the macro layout is set to **Fusion**, and always active in standalone **Fusion Studio** (`Fusion.exe`).
+
+### Quick-apply slots
+
+StarCraft-style control groups for Fusion nodes: save a selection to a slot, paste it back later with one key.
+
+| Shortcut                  | Action                                        |
+|---------------------------|-----------------------------------------------|
+| `Ctrl+Shift+1`–`9`, `0`   | Copy the selected nodes and save to slot 1–10 |
+| `Ctrl+1`–`9`, `0`         | Paste slot 1–10 into the node editor           |
+
+The `0` key is slot 10.
+
+Slots are stored as text files in `slots/` next to the script (git-ignored), so they survive script reloads and reboots and there is no size limit. Resolve and Fusion Studio each have their own independent set of 10 slots (`resolve_slotN.txt` / `studio_slotN.txt`), chosen by whichever app is focused when you save or paste. Pasting a slot replaces the current clipboard contents, just like a normal copy would.
+
+---
+
 ## GregTextPlus Plugin (`plugins/GregTextPlus.ahk`)
 
 Hold the shortcut to move the mouse to that control and hold the left button down. Drag left/right to adjust the value. Release the key to let go.

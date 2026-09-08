@@ -177,7 +177,9 @@ ShowHoldMenu(items, key, callback, checked := "") {
 
 #HotIf
 
-#HotIf WinActive("ahk_exe Resolve.exe") && IsMacroMode("Fusion")
+; Fusion macros also apply in standalone Fusion Studio (Fusion.exe), where the
+; macro layout is irrelevant.
+#HotIf (WinActive("ahk_exe Resolve.exe") && IsMacroMode("Fusion")) || WinActive("ahk_exe Fusion.exe")
 #Include Fusion.ahk
 #HotIf
 

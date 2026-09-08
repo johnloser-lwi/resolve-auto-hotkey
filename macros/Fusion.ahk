@@ -12,14 +12,22 @@
 ;   Ctrl+1..9, Ctrl+0               paste slot 1..10 into the node editor
 ;   (the 0 key is slot 10)
 ;
-; Each slot is a plain-text file in slots\ next to the script. Fusion copies
+; Each slot is a plain-text file in slots\ next to the script, with separate
+; sets for Resolve (resolve_slotN) and Fusion Studio (studio_slotN). Fusion copies
 ; nodes as Lua text, which can be hundreds of KB, and a file has no size limit,
 ; survives script reloads and reboots, and can be opened to see what it holds.
 ; ---------------------------------------------------------------------------
 
 _slotDir := A_ScriptDir "\slots"
 
-_SlotPath(n) => _slotDir "\fusion_slot" n ".txt"
+; Resolve's Fusion page and standalone Fusion Studio get separate slot sets,
+; since node copies aren't always compatible between the two. Which set is
+; used depends on the app focused at the moment you save or paste.
+_SlotPath(n) {
+    global _slotDir
+    app := WinActive("ahk_exe Fusion.exe") ? "studio" : "resolve"
+    return _slotDir "\" app "_slot" n ".txt"
+}
 
 _SlotTip(msg) {
     ToolTip msg

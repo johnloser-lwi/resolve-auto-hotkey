@@ -49,7 +49,6 @@ DeselectAll()
 ; Cut
 F3:: {
     DoEdit("b")
-    Send "^!+{Right}"
 }
 
 ; Ripple Start

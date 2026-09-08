@@ -11,6 +11,9 @@ __pycache__/
 .venv/
 venv/
 
+# Fusion quick-apply slot contents (user data, can be large)
+slots/
+
 # Windows
 Thumbs.db
 Desktop.ini

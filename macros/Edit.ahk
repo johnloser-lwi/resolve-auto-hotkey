@@ -77,6 +77,15 @@ F2:: {
     Send "!+c"
 }
 
+; purge fusion memory cache
+!p:: {
+    Send "h"
+    Sleep 1000
+    Send "!p"
+    Sleep 200
+    Send "+4"
+}
+
 ; =======================================
 ; Titles/Generators/Effects
 ; =======================================

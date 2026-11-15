@@ -71,11 +71,11 @@ F2:: {
 } 
 
 ; create nested timeline, with copy
-^+c:: {
-    Send "^c"
-    Sleep 200
-    Send "!+c"
-}
+; ^+c:: {
+;     Send "^c"
+;     Sleep 200
+;     Send "!+c"
+; }
 
 ; purge fusion memory cache
 !p:: {
@@ -92,7 +92,7 @@ F2:: {
 
 ; Greg's Text+
 F4:: {
-    Spawn("Greg's Text+")
+    Spawn("GregsText_CLS")
 }
 
 ; John Simple Fill
